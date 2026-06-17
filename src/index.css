@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #1a1c2c;
+  --panel: #2d1b2e;
+  --ink: #f4f4f4;
+  --accent: #ff004d;
+  --accent-2: #00e436;
+  --gold: #ffcc00;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.app {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.game-container {
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.canvas-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #5c94fc;
+  border: 4px solid #1a1c2c;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 12px 0 rgba(0,0,0,0.25);
+}
+
+.game-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  image-rendering: pixelated;
+  outline: none;
+}
+
+.hud {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: var(--panel);
+  border: 3px solid #1a1c2c;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: clamp(12px, 2.5vw, 16px);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: rgba(26, 28, 44, 0.92);
+  padding: 1.5rem;
+  z-index: 10;
+}
+
+.overlay h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(28px, 6vw, 48px);
+  color: var(--accent);
+  text-shadow: 4px 4px 0 #000;
+  letter-spacing: -0.02em;
+}
+
+.overlay h2 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(24px, 5vw, 40px);
+  text-shadow: 3px 3px 0 #000;
+}
+
+.overlay p {
+  margin: 0 0 1.25rem;
+  line-height: 1.5;
+  max-width: 28rem;
+  font-size: clamp(13px, 2.5vw, 16px);
+}
+
+.overlay button {
+  padding: 0.75rem 1.5rem;
+  font-family: inherit;
+  font-weight: 800;
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #1a1c2c;
+  background: var(--gold);
+  border: 4px solid #1a1c2c;
+  border-radius: 0;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 #000;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.overlay button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #000;
+}
+
+.overlay button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #000;
+}
+
+.controls-hint {
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.win h2 {
+  color: var(--accent-2);
+}
+
+.gameover h2 {
+  color: var(--accent);
+}
